@@ -15,7 +15,12 @@ def main():
         parser = Parser(lexer)
         interpreter = Interpreter(parser)
         result = interpreter.interpret()
-        print(result)
+        if result in (True, False):
+            print(result)
+        elif float(result).is_integer():
+            print("%.0f" % result)
+        else:
+            print("%.3f" % result)
 
 
 if __name__ == '__main__':
